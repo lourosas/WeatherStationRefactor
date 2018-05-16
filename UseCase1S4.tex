@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper]{article}
+\usepackage{latexsym}
+\usepackage{amsbsy}
+\usepackage{graphicx}
+\begin{document}
+\noindent
+\textbf{Use Case U1:  Request Current Weather Data}\\
+\textbf{Scope:  }Weather Station\\
+\textbf{Level:  }User Goal\\
+\textbf{Primary Actor:  }User\\
+\textbf{Scenario:  }Request Dewpoint Data\\
+\textbf{Related Use Cases:  }N/A\\
+\textbf{Stakeholders and Interests:}
+\begin{itemize}
+\item User:  Wants accurate and current Dewpoint data
+\end{itemize}
+\textbf{Preconditions:  }The Weather Station is running.\\
+\textbf{Success Guaranties  (Postconditions):} 
+Dewpoint Data is returned to the requesting user.\\\\
+\textbf{Main Success Scenario: }\\\\
+\begin{tabular}{|p{6cm}|p{6cm}|}\hline
+\textbf{User} & \textbf{System}\\\hline
+1.  Request Dewpoint Data in the Requested Units (Metric, English,
+Absolute). 
+& \\\hline
+&2.  Retrieves the Temperature Data.\\\hline
+&3.  Retrieves the Humidity Data.\\\hline
+&4.  Calculates the Dewpoint.\\\hline
+&5.  Converts the Dewpoint to the requested units.\\\hline
+&6.  Presents the Dewpoint to the User in the requested units.\\\hline
+\end{tabular}\\\\
+\textbf{Alternative Flows:  }\\
+2a.  If the System cannot measure the Temperature,
+then the System informs the User the Dewpoint cannot be measured:
+stating the reason.\\\\
+3a.  If the System cannot measure the Humidity, then
+the System informs the User the Dewpoint cannot be measured:
+stating the reason.\\\\
+\textbf{Special Requirements:  }Both the Temperature and Humidity
+are needed for calculation.\\\\
+\textbf{Technology and Variations List:  }None\\\\ 
+\textbf{Frequency of Occurrence:  }Could be nearly continuous.\\\\
+\textbf{Open Issues:  }
+\begin{itemize}
+\item Consider calibrating dewpoint via the Dry Bulb, Wet Bulb
+formula
+\end{itemize}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

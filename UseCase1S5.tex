@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper]{article}
+\usepackage{latexsym}
+\usepackage{amsbsy}
+\usepackage{graphicx}
+\begin{document}
+\noindent
+\textbf{Use Case U1:  Request Current Weather Data}\\
+\textbf{Scope:  }Weather Station\\
+\textbf{Level:  }User Goal\\
+\textbf{Primary Actor:  }User\\
+\textbf{Scenario:  }Request Heat Index Data\\
+\textbf{Related Use Cases:  }N/A\\
+\textbf{Stakeholders and Interests:}
+\begin{itemize}
+\item User:  Wants accurate and current Heat Index data
+\end{itemize}
+\textbf{Preconditions:  }The Weather Station is running.\\
+\textbf{Success Guaranties  (Postconditions):} 
+Heat Index Data is returned to the requesting user.\\\\
+\textbf{Main Success Scenario: }\\\\
+\begin{tabular}{|p{6cm}|p{6cm}|}\hline
+\textbf{User} & \textbf{System}\\\hline
+1.  Request Heat Index Data in the requested units (Metric, English,
+Absolute). & \\\hline
+&2.  Retrieves the Temperature Data.\\\hline
+&3.  Retrieves the Humidity Data.\\\hline
+&4.  Calculates the Heat Index.\\\hline
+&5.  Converts the Heat Index to the requested units.\\\hline
+&6.  Presents the Heat Index to the User in the requested
+units.\\\hline
+\end{tabular}\\\\
+\textbf{Alternative Flows:  }\\
+2a.  If the System cannot measure the Temperature,
+then the System informs the User the Dewpoint cannot be measured:
+stating the reason.\\\\
+2b.  If the Heat Index cannot be calculated accurately, then the
+System informs the User the Heat Index cannot be calculated
+accurately.\\\\ 
+3a.  If the System cannot measure the Humidity, then
+the System informs the User the Dewpoint cannot be measured:
+stating the reason.\\\\
+\textbf{Special Requirements:  }Both the Temperature and Humidity are
+need for Heat Index Calculation.\\\\
+\textbf{Technology and Variations List:  }\\ 
+2a.  The temperature must be converted to degrees Fahrenheit to
+calculate the Heat Index in the current formula.\\\\
+2b.  The temperature must be above 70 degrees Fahrenheit to
+accurately calculate the Heat Index.\\\\
+\textbf{Frequency of Occurrence:  }Could be nearly continuous.\\\\
+\textbf{Open Issues:  }
+\begin{itemize}
+\item Consider using another heat index calculation that is accurate
+below 70 fahrenheit (if it makes sense to do so).
+\end{itemize}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

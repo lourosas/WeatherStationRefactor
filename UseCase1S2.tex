@@ -1,0 +1,41 @@
+\documentclass[letterpaper]{article}
+\usepackage{latexsym}
+\usepackage{amsbsy}
+\usepackage{graphicx}
+\begin{document}
+\noindent
+\textbf{Use Case U1:  Request Current Weather Data}\\
+\textbf{Scope:  }Weather Station\\
+\textbf{Level:  }User Goal\\
+\textbf{Primary Actor:  }User\\
+\textbf{Scenario:  }Request Humidity Data\\
+\textbf{Related Use Cases:  }N/A\\
+\textbf{Stakeholders and Interests:}
+\begin{itemize}
+\item User:  Wants accurate and current humidity data
+\end{itemize}
+\textbf{Preconditions:  }The Weather Station is running.\\
+\textbf{Success Guaranties:  (Postconditions)} 
+Humidity Data is returned to the requesting user.\\\\
+\textbf{Main Success Scenario: }\\\\
+\begin{tabular}{|p{6cm}|p{6cm}|}\hline
+\textbf{User} & \textbf{System}\\\hline
+1.  Request Current Humidity Data. 
+& \\\hline
+&2.  Retrieves the Humidity.\\\hline
+&3.  Calculates the Humidity as needed.\\\hline
+&4.  Presents the Humidity to the User.\\\hline
+\end{tabular}\\\\
+\textbf{Alternative Flows:  }\\
+*a.  If at any time, the System cannot measure the humidity, then
+the System informs the User the humidity can not be measured.\\\\
+\textbf{Technology and Variations List:  }\\
+3a.  The System may need to calculate the Humidity based on
+temperature and measured input and output device voltage.\\\\
+\textbf{Frequency of Occurrence:  }Could be nearly continuous.\\\\
+\textbf{Open Issues:  }
+\begin{itemize}
+\item What if the humidity cannot be read?  Does the System continue
+to collect other data?
+\end{itemize}
+\end{document}
