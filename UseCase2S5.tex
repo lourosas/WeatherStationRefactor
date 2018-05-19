@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper]{article}
+\usepackage{latexsym}
+\usepackage{amsbsy}
+\usepackage{graphicx}
+\begin{document}
+\noindent
+\textbf{Use Case 2:  Request Archived Weather Data}\\
+\textbf{Scope:  }Weather Station\\
+\textbf{Level:  }User Goal\\
+\textbf{Primary Actor:  }User\\
+\textbf{Secondary Actor:  }Archiving System (Database)\\
+\textbf{Scenario:  }Request Archived Heat Index Data\\
+\textbf{Related Use Cases:  }N/A\\
+\textbf{Stakeholders and Interests:  }
+\begin{itemize}
+\item User:  Wants to retrieve archived heat index data.
+\item Weather Services:  Wants to retrieive and compare archived
+heat index data for the purpose of comparing to other weather
+stations, and for accuracy of instrumentation and correction of
+Weather Station placement if needed.
+\item National Weather Service:  Wants archived spotter weather data.
+\item Weather Scientists and Observers:  Wants to to observe archived
+meteorological data in a given locale.
+\end{itemize}
+\textbf{Preconditions:  }The Weather Station has archived the
+heat index data for the given time frame requested; the
+archiving system is available for requested data retrieval.\\
+\textbf{Success Guaranties (Postconditions):  }Archived heat index
+data is retrieved from the archiving system, and returned to the
+User.\\\\
+\textbf{Main Success Scenario:  }\\\\
+\begin{tabular}{|p{6cm}|p{6cm}|}\hline
+\textbf{User} & \textbf{System}\\\hline
+1. Request Archived Heat Index Data at a given time in the
+desired units (Metric, English, Absolute).&\\\hline
+&2.  Queries the external archiving system for the dewpoint
+data at the requested time.\\\hline
+&3.  Presents the archived data to the User in the desired
+Units.\\\hline
+\end{tabular}\\\\
+\textbf{Alternative Flows:  }\\
+2a.  If the external archiving system is not available at the
+requested time:\\
+2a1. System alerts the user--with a possible reason as to
+why.\\\\
+2b.  If the external archiving system is not available:\\
+2b1. System
+will try another (redundant) archiving system to see if the data is
+available in the redundant system--alerting the user of the issue and
+indicating its search in another archiving system.\\
+2b2.  System informs user if another archiving system is not
+available.\\\\
+2c.  If the no heat index data is available at the User requested
+time:\\
+\quad2c1. System alerts the User of the unavailability of the
+requested dewpoint data.\\\\
+\textbf{Special Requirements:  }Somehow we want the archiving systems
+to be ATOM(ic) to recover from a crash as best as possible.\\\\
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
