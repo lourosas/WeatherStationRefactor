@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>20</y>
+      <w>370</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/WeatherClientDataPublisher/
+--
+#List&lt;WeatherDataClientSubscriber&gt; _subscribers
+--
++addSubscriber(WeatherClientDataSubscriber )
+#publishData(String )
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>570</x>
+      <y>30</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>WeatherClientDataSubscriber
+--
+updateData(String )</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>230</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Publisher&gt;&gt;
+CurrentWeatherClient</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>100</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>160</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Subscriber&gt;&gt;
+CurrentWeatherDataSubscriber
+--
+#_data:String
+#_wdp:WeatherDataParser
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>30</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>30</y>
+      <w>300</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1
+Raw Data</panel_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>170</y>
+      <w>140</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;30.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>200</x>
+      <y>110</y>
+      <w>80</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Runnable
+--
+run()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>110</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>330</y>
+      <w>430</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>WeatherDataParser
+--
+
+--
++parseCalendar(String data) : String
++parseDewpointMessage(String data) : String
++parseHeatIndexMessage(String data) : String
++parseHumidityMessage(String data) : String
++parsePressureMessage(String data) : String
++parseTemperatureMessage(String data) : String
++parseRawTemperature(String data):String
++parseRawHumidity(String data):String
++parseRawPressure(String data):String
++parseRawDewpoint(String data):String
++parseRawHeatIndex(String data):String
++parseTemperatureAbsolute(String data):String
++parseTemperatureEnglish(String data) : String
++parseTemperatureMetric(String data) : String
+-parseData(String data, String key):String
+-parseData(String data, String delim, String[] keys): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>810</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>CurrentWeatherDataServer
+--
+_-PORT:int=19000{read only}_
+-address:String
+-addr:byte[]
+--
+-waitForRequests()
+--
+Responsibilities
+-- Serve Current Weather Data
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>880</y>
+      <w>260</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Publisher&gt;&gt;
+&lt;&lt;Client&gt;&gt;
+CurrentWeatherClient</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>840</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-()
+m2=provide
+</panel_attributes>
+    <additional_attributes>10.0;30.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>830</y>
+      <w>140</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=)-
+m1=require
+</panel_attributes>
+    <additional_attributes>20.0;20.0;120.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>500</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CurrentHttpHandler</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>250</y>
+      <w>30</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>710</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>/HttpServer/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>710</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CurrentHttpHandler</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>690</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-()
+m2=provide
+</panel_attributes>
+    <additional_attributes>10.0;30.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>680</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=)-
+m1=require
+</panel_attributes>
+    <additional_attributes>20.0;20.0;120.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>720</x>
+      <y>340</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>HttpHandler
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>340</y>
+      <w>120</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>850</x>
+      <y>360</y>
+      <w>170</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/DatabaseSubscriber/
+--
+
+--
+#setWeatherData()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>250</y>
+      <w>140</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>850</x>
+      <y>500</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>MySQLSubscriber</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>430</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>1130</x>
+      <y>350</y>
+      <w>120</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>WeatherData
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>360</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m1=1
+m2=5</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>1050</x>
+      <y>450</y>
+      <w>280</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>WeatherDatabase
+--
++temperature(:WeatherData )
++humidity(:WeatherData )
++barometricPressure(:WeatherData )
++dewpoint(:WeatherData )
++heatIndex(:WeatherData )</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1180</x>
+      <y>470</y>
+      <w>30</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1060</x>
+      <y>790</y>
+      <w>260</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Database&gt;&gt;
+&lt;&lt;Singleton&gt;&gt;
+MySQLDatabase
+--
+//-id: Long {composite}
+//_-ClassAttribute: Long_
+_-instance:MySQLDatabase_
+--
+_+getInstance():MySQLDatabase_
+#&lt;&lt;constructor&gt;&gt;MySQLDatabase()
+-attemptToConnect()
+-createDatabase()
+//#Operation(i: int): int
+///+AbstractOperation()/
+//--
+//Responsibilities
+//-- Resp1
+//-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>770</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>140.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>840</x>
+      <y>750</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Singleton Implementation
+bg=white
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1210</x>
+      <y>740</y>
+      <w>90</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0;70.0;10.0;70.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>510</y>
+      <w>130</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=1
+m1=0..*</panel_attributes>
+    <additional_attributes>90.0;280.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
