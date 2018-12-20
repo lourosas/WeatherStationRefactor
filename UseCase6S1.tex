@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage{latexsym}
+\usepackage{amsbsy}
+\usepackage{graphicx}
+\begin{document}
+\noindent
+\textbf{Use Case S1:  Archive Weather Data}\\
+\textbf{Scope: }Weather Station\\
+\textbf{Level:  }System Goal\\
+\textbf{Primary Actor:  }System\\
+\textbf{Scenario:  }Archive Temperature Data\\
+\textbf{Related Use Cases:  }Use Case SA1:  \emph{The System 
+Administrator shall set the measurement time for all Weather Data
+for the System.}\\
+\textbf{Stakeholders and Interests:  }
+\begin{itemize}
+\item Users:  who want to view archived weather data.
+\item Weather Bureaus:  that want to view archived data from other
+geographic locations. 
+\end{itemize}
+\textbf{Preconditions:  }The Weather Station is running.  The
+Archiving System running and able to receieve data for archiving.\\
+\textbf{Success Guarantees (Postconditions):  }Data is sent to the
+archiving system.  The no error indication is returned from the
+archiving system.\\\\
+\textbf{Main Success Scenario:  }\\\\
+\begin{tabular}{|p{6cm}|p{6cm}|}\hline
+\textbf{System} & \textbf{Archiving System}\\\hline
+1. Send data to be archived & \\\hline
+2. Send type of data to be archived & \\\hline
+3. Send the time, day, date of the measured data & \\\hline
+& 4.  Archives the data in the appropriate location (Temperature,
+Humidity, Barometer, etc...)\\\hline
+\end{tabular}\\\\
+\textbf{Alternative Flows:  }\\
+4a.  If the Archiving System is not available:\\
+4a1.  The System saves the data in an ``alternative format",
+regardless.\\\\
+4b.  If Archiving System has no system for the archiving the weather
+data:\\
+4b1.  The Archiving System will create the system for archiving the
+weather data.\\
+4b2.  The Archiving System will then save the data requested for
+archiving.\\\\
+4c.  If the Archiving System cannot save the data:\\
+4c1.  The Archiving System will alert the System.\\
+4c2.  The Archiving System will attempt to save the data again.\\
+4c3.  The System saves the data in an ``alternative format",
+regardless.
+\end{document}
