@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>70</y>
+      <w>370</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/WeatherClientDataPublisher/
+--
+#List&lt;WeatherDataClientSubscriber&gt; _subscribers
+--
++addSubscriber(WeatherClientDataSubscriber )
+#publishData(String )
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>80</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1
+Raw Data</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>100</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>680</x>
+      <y>80</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>WeatherClientDataSubscriber
+--
+updateData(String )</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>210</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Subscriber&gt;&gt;
+CurrentWeatherDataSubscriber
+--
+#_data:String
+#_wdp:WeatherDataParser
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>220</y>
+      <w>140</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>490</y>
+      <w>430</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>WeatherDataParser
+--
+
+--
++parseCalendar(String data) : String
++parseDewpointMessage(String data) : String
++parseHeatIndexMessage(String data) : String
++parseHumidityMessage(String data) : String
++parsePressureMessage(String data) : String
++parseTemperatureMessage(String data) : String
++parseRawTemperature(String data):String
++parseRawHumidity(String data):String
++parseRawPressure(String data):String
++parseRawDewpoint(String data):String
++parseRawHeatIndex(String data):String
++parseStringIntoCalendar(String data) :Calendar
++parseTemperatureAbsolute(String data):String
++parseTemperatureEnglish(String data) : String
++parseTemperatureMetric(String data) : String
+-parseData(String data, String key):String
+-parseData(String data, String delim, String[] keys): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>210</y>
+      <w>40</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>330</x>
+      <y>190</y>
+      <w>80</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Runnable
+--
+run()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>150</y>
+      <w>30</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>310</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Publisher&gt;&gt;
+CurrentWeatherClient</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>410</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>WundergroundSubscriber</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>300</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+</diagram>
